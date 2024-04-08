@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+body{
+    background-color: hsl(0, 0%, 94%);
+}
+main{
+    background-color: white;
+    border-radius: 25px 25px 250px 25px;
+    width: 50%;
+    padding: 50px;
+    margin-top: 50px;
+}
+.gora{
+    color: hsl(0, 1%, 44%);
+}
+.label{
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
+.srodek{
+    display: flex;
+}
+button{
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 100%;
+    padding: 20px;
+    border: 0px solid black;
+}
+button:active{
+    background-color: hsl(0, 0%, 8%);
+}
+.hr{
+    width: 100%;
+    padding-top: 35px;
+}
+.hr2{
+    width: 0%;
+    padding-top: 35px;
+}
+input{
+    font-size: 32px;
+    padding: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-right: 130px;
+    border: 1px solid hsl(0, 1%, 44%);
+    border-radius: 5px;
+}
+input::before{
+    color: hsl(0, 1%, 44%);
+}
+input::after{
+    color: hsl(0, 0%, 8%);
+}
+.dol{
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+}
+#year1{color: hsl(259, 100%, 65%);}
+#year2{color: hsl(0, 0%, 8%);}
+#month1{color: hsl(259, 100%, 65%);}
+#month2{color: hsl(0, 0%, 8%);}
+#day1{color: hsl(259, 100%, 65%);}
+#day2{color: hsl(0, 0%, 8%);}
+.cos3{
+    display: flex;
+}
+#js1{padding-bottom: 10px; padding-right: 250px;}
+#js2{padding-bottom: 10px; padding-right: 250px;}
+#js3{padding-bottom: 10px; padding-right: 250px;}
+#js4{color: hsl(0, 100%, 67%); font-family: "Poppins", sans-serif; font-weight: 400; font-style: italic;}
+#js5{color: hsl(0, 100%, 67%); font-family: "Poppins", sans-serif; font-weight: 400; font-style: italic;}
+#js6{color: hsl(0, 100%, 67%); font-family: "Poppins", sans-serif; font-weight: 400; font-style: italic;}
+@media (max-width: 375px) {
+    body{
+        width: 375px;
+    }
+    button{
+        padding: 10px;
+    }
+    .hr{
+        padding-top: 25px;
+    }
+    .hr2{
+        width: 100%;
+        padding-top: 25px;
+    }
+    input{
+        font-size: 1rem;
+        padding: 5px;
+        margin-right: 10px;
+    }
+    .label{
+        display: flex;
+        justify-content: space-between;
+    }
+    #js1{padding-right: 5px;}
+    #js2{padding-right: 5px;}
+    #js3{padding-right: 5px;}
+    main{
+        width: 75%;
+        padding: 25px;
+        border-radius: 25px 25px 100px 25px;
+    }
+    .dol{
+        font-size: 3rem;
+    }   
+}

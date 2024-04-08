@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body>
+  <div class="flex">
+  <main>
+    <div class="gora">
+      <div class="label">
+        <div id="cos2">
+          <div id="js1">DAY</div>
+          <input type="number" max="31" min="1" required id="dni" placeholder="DD">
+          <div id="js4"></div>
+        </div>
+        <div id="cos2">
+          <div id="js2">MONTH</div>
+          <input type="number" max="12" min="1" required id="mies" placeholder="MM">
+          <div id="js5"></div>
+        </div>
+        <div id="cos2">
+          <div id="js3">YEAR</div>
+          <input type="number" max="2024" min="1" required id="lata" placeholder="YYYY">
+          <div id="js6"></div>
+        </div>
+      </div>
+    </div>
+    <div class="srodek">
+      <div class="hr">
+        <hr>
+      </div>
+      <button onclick="denis()"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"/></g></svg></button>
+      <div class="hr2">
+        <hr>
+      </div>
+    </div>
+    <div class="dol">
+      <div class="cos3">
+        <div id="year1">- -</div>
+        <div id="year2">years</div>
+      </div>
+      <div class="cos3">
+        <div id="month1">- -</div>
+        <div id="month2">months</div>
+      </div>
+      <div class="cos3">
+        <div id="day1">- -</div>
+        <div id="day2">days</div>
+      </div>
+    </div>
+  </main>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <!--JAK TO KOPIUJESZ TO NIE DZIALA-->
+  <script>
+    
+    function denis(){
+      
+      var now = new Date();
+      var day = document.getElementById("dni").value;
+      var mnth = document.getElementById("mies").value;
+      var year = document.getElementById("lata").value;
+      var dni = now.getDay();
+      var mies = now.getMonth();
+      var lata = now.getFullYear();
+      
+      if (year > lata) {
+        document.getElementById("js3").style.color = "hsl(0, 100%, 67%)"
+        document.getElementById("lata").style.borderColor = "hsl(0, 100%, 67%)"
+        document.getElementById("js6").textContent = "Must be in the past"
+        if (mnth > 12) {
+          document.getElementById("js2").style.color = "hsl(0, 100%, 67%)"
+          document.getElementById("mies").style.borderColor = "hsl(0, 100%, 67%)"
+          document.getElementById("js5").textContent = "Must be a valid month"
+          if (mnth == 1 || mnth == 3 || mnth == 5 || mnth == 7 || mnth == 8 || mnth == 10 || mnth ==12) {
+            if (day > 31) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+            }
+          }
+          if (mnth == 4 || mnth == 6 || mnth == 9 || mnth == 11) {
+            if (day > 30) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+            }
+          }
+          if (mnth == 2) {
+            if (year %4 == 0) {
+              if (day > 29) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+              }
+            }
+            else{
+              if (day > 28) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+              }
+            } 
+          }
+          else{
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+          }
+        }
+        else{
+          document.getElementById("js2").style.color = "hsl(0, 1%, 44%)"
+          document.getElementById("mies").style.borderColor = "hsl(0, 1%, 44%)"
+          document.getElementById("js5").textContent = ""
+          if (mnth == 1 || mnth == 3 || mnth == 5 || mnth == 7 || mnth == 8 || mnth == 10 || mnth ==12) {
+            if (day > 31) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+            }
+          }
+          if (mnth == 4 || mnth == 6 || mnth == 9 || mnth == 11) {
+            if (day > 30) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+            }
+          }
+          if (mnth == 2) {
+            if (year %4 == 0) {
+              if (day > 29) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+              }
+            }
+            else{
+              if (day > 28) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+              }
+            } 
+          }
+          else{
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+          }
+        }
+      }
+      else{
+        document.getElementById("js3").style.color = "hsl(0, 1%, 44%)"
+        document.getElementById("lata").style.borderColor = "hsl(0, 1%, 44%)"
+        document.getElementById("js6").textContent = ""
+        if (mnth > 12) {
+          document.getElementById("js2").style.color = "hsl(0, 100%, 67%)"
+          document.getElementById("mies").style.borderColor = "hsl(0, 100%, 67%)"
+          document.getElementById("js5").textContent = "Must be a valid month"
+          if (mnth == 1 || mnth == 3 || mnth == 5 || mnth == 7 || mnth == 8 || mnth == 10 || mnth == 12) {
+            if (day > 31) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+              var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 31;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+            }
+          }
+          if (mnth == 4 || mnth == 6 || mnth == 9 || mnth == 11) {
+            if (day > 30) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+              var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 30;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+            }
+          }
+          if (mnth == 2) {
+            if (year %4 == 0) {
+              if (day > 29) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+                var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 29;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+              }
+            }
+            else{
+              if (day > 28) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+                var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 28;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+              }
+            } 
+          }
+        }
+        else{
+          document.getElementById("js2").style.color = "hsl(0, 1%, 44%)"
+          document.getElementById("mies").style.borderColor = "hsl(0, 1%, 44%)"
+          document.getElementById("js5").textContent = ""
+          if (mnth == 1 ||mnth == 3 || mnth == 5 || mnth == 7 || mnth == 8 || mnth == 10 || mnth == 12) {
+            if (day > 31) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+              var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 31;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+            }
+          }
+          if (mnth == 4 || mnth == 6 || mnth == 9 || mnth == 11) {
+            if (day > 30) {
+              document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+              document.getElementById("js4").textContent = "Must be a valid day"
+            }
+            else{
+              document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+              document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+              document.getElementById("js4").textContent = ""
+              var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 30;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+            }
+          }
+          if (mnth == 2) {
+            if (year %4 == 0) {
+              if (day > 29) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+                var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 29;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+              }
+            }
+            else{
+              if (day > 28) {
+                document.getElementById("js1").style.color = "hsl(0, 100%, 67%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 100%, 67%)"
+                document.getElementById("js4").textContent = "Must be a valid day"
+              }
+              else{
+                document.getElementById("js1").style.color = "hsl(0, 1%, 44%)"
+                document.getElementById("dni").style.borderColor = "hsl(0, 1%, 44%)"
+                document.getElementById("js4").textContent = ""
+                var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 28;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+                else{
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+                }
+              }
+            } 
+          }
+          else{
+            console.log("jestes glupi")
+            var newday = dni - day;
+                var newmnth = mies - mnth;
+                var newyear = lata - year;
+                if (newday < 0) {
+                  newday = newday + 31;
+                  newmnth = newmnth - 1;
+                  if (newmnth < 0) {
+                    newmnth = newmnth + 12;
+                    newyear = newyear - 1;
+                  }
+                  else{
+                    document.getElementById("year1").textContent = newyear;
+                    document.getElementById("month1").textContent = newmnth;
+                    document.getElementById("day1").textContent = newday;
+                  }
+
+                }
+          }
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
